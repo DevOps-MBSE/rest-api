@@ -10,18 +10,13 @@ import logging
 import os
 import uvicorn
 from fastapi.openapi.utils import get_openapi
-from typing import Any
 
-from aac.context.definition import Definition
-from aac.context.language_context import LanguageContext
-from aac.context.source_location import SourceLocation
 from aac.execute.aac_execution_result import (
     ExecutionResult,
     ExecutionStatus,
     ExecutionMessage,
     MessageLevel,
 )
-from aac.in_out.files.aac_file import AaCFile
 
 from rest_api.aac_rest_app import app, refresh_available_files_in_workspace
 
@@ -59,6 +54,7 @@ def rest_api(host: str, port: int) -> ExecutionResult:
 
     return ExecutionResult(plugin_name, "rest-api", status, messages)
 
+
 def _start_restful_service(host: str, port: int) -> str:
     """
     Starts the RESTful interface service.
@@ -70,7 +66,7 @@ def _start_restful_service(host: str, port: int) -> str:
     Returns:
         A success message.
     """
-    asyncio.run(refresh_available_files_in_workspace(LanguageContext()))
+    asyncio.run(refresh_available_files_in_workspace())
     logging.info(f"Starting REST API in {os.getcwd()}.")
     uvicorn.run(app, host=host, port=port)
     return "Successfully started the RESTful API."

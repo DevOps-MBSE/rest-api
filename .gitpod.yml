@@ -1,7 +1,7 @@
 tasks:
   - name: Serve Sphinx Docs
     init: |
-      cd /workspace/aac-spec/docs/
+      cd /workspace/rest-api/docs/
       sleep 120 # Gitpod often takes a long time to install the python environment
       source /workspace/rest-api/python/venv/bin/activate
       sphinx-build source gen_docs # Pre-build the docs so that when Gitpod opens the port it's ready to serve

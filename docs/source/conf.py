@@ -25,7 +25,7 @@ copyright = f"2021 - {str(date.today().year)} , AaC Rest-API Project Contributor
 author = "AaC Rest-API Project Contributors"
 
 # The full version, including alpha/beta/rc tags
-release = metadata.version("aac-rest-api")
+release = metadata.version("rest-api")
 
 
 # -- General configuration ---------------------------------------------------
